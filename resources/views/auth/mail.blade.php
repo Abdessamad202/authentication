@@ -1,93 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Laravel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta name="color-scheme" content="light">
-    <meta name="supported-color-schemes" content="light">
-    <link rel="stylesheet" href="email-styles.css">
-    @vite("resources/css/app.css")
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+        .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #4a90e2;
+        }
+        .code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #4a90e2;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
 </head>
+<body>
+    <div class="container">
+        <div class="header">Verify Your Email Address</div>
 
-<body class="body">
+        <p>Dear,</p>
 
-    <table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-        <tr>
-            <td align="center">
-                <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                        <td class="header">
-                            <a href="" target="_blank" rel="noopener noreferrer">
-                                <img src="https://laravel.com/img/notification-logo.png" class="logo" alt="Laravel Logo">
-                            </a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="body" width="100%" cellpadding="0" cellspacing="0">
-                            <table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                                <tr>
-                                    <td class="content-cell">
-                                        <h3>Hello!</h3>
-                                        <p>You are receiving this email because we received a password reset request for your account.</p>
-                                        <table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                                            <tr>
-                                                <td align="center">
-                                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
-                                                        <tr>
-                                                            <td align="center">
-                                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation">
-                                                                    <tr>
-                                                                        <td>
-                                                                            <a href="{{$href}}" class="button button-primary" target="_blank" rel="noopener noreferrer">
-                                                                                Verify Your Email
-                                                                            </a>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                        <p>This password reset link will expire in 60 minutes.</p>
-                                        <p>If you did not request a password reset, no further action is required.</p>
-                                        <p>Regards,<br> Laravel</p>
-                                        <table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                                            <tr>
-                                                <td>
-                                                    <p>If you're having trouble clicking the "Reset Password" button, copy and paste the URL below into your web browser:</p>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <p><a href="{{$href}}">Reset Password Link</a></p>
+        <p>Thank you for registering with us!</p>
 
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
-                                <tr>
-                                    <td class="content-cell" align="center">
-                                        <p>© 2024 Laravel. All rights reserved.</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+        <p>Please use the 8-digit verification code below to complete your registration and verify your email address:</p>
+
+        <div class="code">{{ $code }}</div>
+
+        <p><strong>Note:</strong> This code will expire in 15 minutes for security purposes.</p>
+
+        <p>If you did not create an account with us, please disregard this email.</p>
+
+        <p>Thank you for choosing . If you have any questions or need assistance, feel free to reach out to our support team.</p>
+
+        <div class="footer">
+            ©. All rights reserved.
+        </div>
+    </div>
 </body>
-
 </html>

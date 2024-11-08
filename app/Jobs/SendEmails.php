@@ -16,10 +16,12 @@ class SendEmails implements ShouldQueue
      */
     private $mail;
     private $user;
-    public function __construct($mail,$user)
+    private $code;
+    public function __construct($mail,$user,$code)
     {
         $this->mail = $mail;
         $this->user = $user;
+        $this->code = $code;
     }
 
     /**
@@ -28,6 +30,6 @@ class SendEmails implements ShouldQueue
     public function handle(): void
     {
         //
-        Mail::to($this->mail)->send(new VerificationEmail($this->user));
+        Mail::to($this->mail)->send(new VerificationEmail($this->user,$this->code));
     }
 }

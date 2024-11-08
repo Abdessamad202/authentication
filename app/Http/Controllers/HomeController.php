@@ -20,6 +20,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+    // this function shows the view home
     public function home() {
         return view('home');
     }
